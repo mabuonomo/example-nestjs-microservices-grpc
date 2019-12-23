@@ -6,6 +6,8 @@ nest new client
 
 cd server
 npm i --save grpc @grpc/proto-loader
+npm i --save @nestjs/microservices
 
 cd client
 npm i --save grpc @grpc/proto-loader
+npm i --save @nestjs/microservices
