@@ -1,15 +1,19 @@
-# example-nestjs-grpc
+# NestJS + gRPC: a multi microservices example
 
-npm i -g @nestjs/cli
-nest new micr2
-nest new micr_test
+This repo show as to configure a multi microservices stack in NestJS using gRPC.
 
-nest new micr1
-cd micr1
-npm i --save grpc @grpc/proto-loader
-npm i --save @nestjs/microservices
+## Stack
+* 2 microservices 
+* 1 client
 
-https://stackoverflow.com/questions/52266348/how-to-split-nest-js-microservices-into-separate-projects
+## Run it!
+```bash
+make npm_install
+docker-compose up
+```
+Navigate to
 
+```
 http://localhost:3000/test/client1
 http://localhost:3000/test/client2
+```
