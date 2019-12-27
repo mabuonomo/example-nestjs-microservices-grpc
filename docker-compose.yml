@@ -32,3 +32,6 @@ services:
     working_dir: /app
     ports: 
       - 3000:3000
+    depends_on: 
+      - node_1
+      - node_2

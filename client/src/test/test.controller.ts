@@ -25,7 +25,7 @@ export class TestController implements OnModuleInit {
 
   onModuleInit() {
     this.micr1Service = this.client1.getService<Micr1Service>('Micr1Service');
-    this.micr2Service = this.client1.getService<Micr2Service>('Micr2Service');
+    this.micr2Service = this.client2.getService<Micr2Service>('Micr2Service');
   }
 
   @Get('client1')
@@ -35,6 +35,6 @@ export class TestController implements OnModuleInit {
 
   @Get('client2')
   find2(): Observable<any> {
-    return this.micr2Service.findOne({ id: 1 });
+    return this.micr2Service.findOne({ id: 3 });
   }
 }
