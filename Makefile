@@ -1,5 +1,13 @@
 npm_install:
-	docker-compose run node npm install
+	docker-compose run node_1 npm install
+	docker-compose run node_2 npm install
+
+format:
+	docker-compose run node_1 npm run format
+	docker-compose run node_2 npm run format
+
+fix_permission:
+	sudo chown -R ${USER}:${GROUP} ./
 
 # npm_outdate:
 # 	docker-compose run node npm outdate
@@ -20,9 +28,3 @@ npm_install:
 
 # test:
 # 	docker-compose run node npm test
-
-format:
-	docker-compose run node npm run format
-
-fix_permission:
-	sudo chown -R ${USER}:${GROUP} ./
