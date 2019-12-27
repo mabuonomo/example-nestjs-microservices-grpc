@@ -3,7 +3,7 @@ syntax = "proto3";
 package micr1;
 
 service Micr1Service {
-  rpc FindOne (Micr1ById) returns (Micr1) {}
+  rpc FindOne (Micr1Id) returns (Micr1) {}
 }
 
 message Micr1ById {

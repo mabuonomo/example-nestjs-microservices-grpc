@@ -1,0 +1,12 @@
+version: 3.7
+
+services:
+  node:
+    build:
+      context: .docker
+      dockerfile: Dockerfile.dev
+    volumes:
+      - microservices/micr1:/app
+      - proto:/proto
+    working_dir: /app
+    
