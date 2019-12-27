@@ -1,5 +1,5 @@
 FROM node:11-alpine
-EXPOSE 3000 6379 50051
+EXPOSE 3000 6379 50051 8080
 
 RUN npm install -g typescript
 RUN npm install -g ts-node
