@@ -10,3 +10,6 @@ npm i --save grpc @grpc/proto-loader
 npm i --save @nestjs/microservices
 
 https://stackoverflow.com/questions/52266348/how-to-split-nest-js-microservices-into-separate-projects
+
+http://localhost:3000/test/client1
+http://localhost:3000/test/client2
