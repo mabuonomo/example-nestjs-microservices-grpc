@@ -8,7 +8,7 @@ async function bootstrap() {
     transport: Transport.GRPC,
     options: {
       // url: 'http://localhost:6379',
-      protoPath: join('/proto/micr1.proto'),
+      protoPath: '/proto/micr1.proto',
       package: 'micr1',
     },
   });

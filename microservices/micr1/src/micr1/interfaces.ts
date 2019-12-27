@@ -1,8 +1,8 @@
 export interface Micr1ById {
-    id: number;
+  id: number;
 }
 
 export interface Micr1 {
-    id: number;
-    name: string;
+  id: number;
+  name: string;
 }

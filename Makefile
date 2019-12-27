@@ -1,5 +1,5 @@
-# npm_install:
-# 	docker-compose run node npm install
+npm_install:
+	docker-compose run node npm install
 
 # npm_outdate:
 # 	docker-compose run node npm outdate
