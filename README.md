@@ -1,6 +1,7 @@
 # NestJS + gRPC: a multi microservices example
 
-This repo show as to configure a multi microservices stack in NestJS using gRPC.
+This repo show as to configure a multi microservices stack in NestJS using gRPC in docker environment.
+
 
 ## Stack
 * 2 microservices 
