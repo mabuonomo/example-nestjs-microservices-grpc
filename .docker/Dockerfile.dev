@@ -1,6 +1,6 @@
-FROM node:latest
+FROM node:11-alpine
 EXPOSE 3000 27017
-RUN npm install bcrypt
+# RUN npm install bcrypt
 RUN npm install -g ts-node
 RUN npm install -g typescript
 RUN npm install -g ts-node-dev
@@ -9,9 +9,7 @@ RUN npm install -g ts-node-dev
 RUN npm install -g outdate
 RUN npm install -g ncu
 
-# prisma
-RUN npm install -g prisma
-RUN npm install -g graphql-cli
-
 # nest
 RUN npm install -g @nestjs/cli
+
+# RUN npm install grpc --build-from-source

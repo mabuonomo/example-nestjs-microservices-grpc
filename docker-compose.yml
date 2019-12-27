@@ -1,4 +1,4 @@
-version: 3.7
+version: "3.7"
 
 services:
   node:
@@ -6,7 +6,8 @@ services:
       context: .docker
       dockerfile: Dockerfile.dev
     volumes:
-      - microservices/micr1:/app
-      - proto:/proto
+      - ./microservices/micr1:/app
+      - ./proto:/proto
+    command: sh run.sh
     working_dir: /app
     
