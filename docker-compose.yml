@@ -21,3 +21,12 @@ services:
     command: nest start
     working_dir: /app
     
+  node_client:
+    build:
+      context: .docker
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./client:/app
+      - ./proto:/proto
+    command: nest start
+    working_dir: /app
