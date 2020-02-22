@@ -5,13 +5,8 @@ RUN npm install -g typescript
 RUN npm install -g ts-node
 RUN npm install -g ts-node-dev
 
-# npm update all
-RUN npm install -g outdate
-
 # nest
 RUN npm install -g @nestjs/cli
 
-# sqlite
-RUN apk update \
-    && apk add sqlite \
-    && apk add socat
+# RUN npm install -g prisma2
+RUN npm install -g --unsafe-perm prisma2@latest  \

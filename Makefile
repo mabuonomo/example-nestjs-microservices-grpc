@@ -23,6 +23,9 @@ npm_update:
 	docker-compose run node_client 		npm update
 	make npm_install
 
+prisma_generate:
+	docker-compose run node_prisma2 	prisma2 migrate save --name "add-comment-model" --experimental
+
 # start:
 # 	docker-compose up -d
 # 	docker-compose exec node npm start run
