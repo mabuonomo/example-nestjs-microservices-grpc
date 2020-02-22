@@ -8,5 +8,5 @@ RUN npm install -g ts-node-dev
 # nest
 RUN npm install -g @nestjs/cli
 
-# RUN npm install -g prisma2
-RUN npm install -g --unsafe-perm prisma2@latest  \
+# prisma
+RUN npm install -g prisma

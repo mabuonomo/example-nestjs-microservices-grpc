@@ -1,14 +1,14 @@
 npm_install:
-	docker-compose run node_1 			npm install
-	docker-compose run node_2 			npm install
-	docker-compose run node_prisma	 	npm install
-	docker-compose run node_client 		npm install
+	docker-compose run --rm node_1 			npm install
+	docker-compose run --rm node_2 			npm install
+	docker-compose run --rm node_prisma	 	npm install
+	docker-compose run --rm node_client 	npm install
 
 format:
-	docker-compose run node_1 			npm run format
-	docker-compose run node_2 			npm run format
-	docker-compose run node_prisma		npm run format
-	docker-compose run node_client 		npm run format
+	docker-compose run --rm node_1 			npm run format
+	docker-compose run --rm node_2 			npm run format
+	docker-compose run --rm node_prisma		npm run format
+	docker-compose run --rm node_client 	npm run format
 
 fix_permission:
 	sudo chown -R ${USER}:${GROUP} ./
@@ -17,14 +17,14 @@ fix_permission:
 # 	docker-compose run node npm outdate
 
 npm_update:
-	docker-compose run node_1 			npm update
-	docker-compose run node_2 			npm update
-	docker-compose run node_prisma 	npm update
-	docker-compose run node_client 		npm update
+	docker-compose run --rm node_1 			npm update
+	docker-compose run --rm node_2 			npm update
+	docker-compose run --rm node_prisma 	npm update
+	docker-compose run --rm node_client 	npm update
 	make npm_install
 
-prisma_generate:
-	docker-compose run node_prisma2 	prisma2 migrate save --name "add-comment-model" --experimental
+prisma_deploy:
+	docker-compose run node_prisma			npx prisma deploy
 
 # start:
 # 	docker-compose up -d

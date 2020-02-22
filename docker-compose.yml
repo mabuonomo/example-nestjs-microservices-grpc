@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 
 services:
   node_1:
@@ -21,7 +21,7 @@ services:
     command: nest start
     working_dir: /app
 
-  node_prisma2:
+  node_prisma:
     build:
       context: .docker
       dockerfile: Dockerfile.dev
@@ -30,19 +30,38 @@ services:
       - ./proto:/proto
     command: nest start
     depends_on: 
-      - mysql
+      - prisma
     working_dir: /app
+
+  prisma:
+    image: prismagraphql/prisma:1.14
+    restart: always
+    ports:
+    - 4466:4466
+    environment:
+      PRISMA_CONFIG: |
+        port: 4466
+        # uncomment the next line and provide the env var PRISMA_MANAGEMENT_API_SECRET=my-secret to activate cluster security
+        # managementApiSecret: my-secret
+        databases:
+          default:
+            connector: mysql
+            host: mysql
+            port: 3306
+            user: root
+            password: prisma
+            migrations: true
 
   mysql:
     image: mysql:5.7
     volumes:
       - ./data/mysql:/var/lib/mysql  
-    # restart: always
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: mysql
-      MYSQL_USER: mysql
-      MYSQL_PASSWORD: mysql
+      MYSQL_ROOT_PASSWORD: prisma
+      # MYSQL_DATABASE: mysql
+      # MYSQL_USER: mysql
+      # MYSQL_PASSWORD: mysql
     # ports: 
     #   - 3307:3306
     
