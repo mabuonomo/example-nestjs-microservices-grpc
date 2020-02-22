@@ -20,6 +20,31 @@ services:
       - ./proto:/proto
     command: nest start
     working_dir: /app
+
+  node_prisma2:
+    build:
+      context: .docker
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./microservices/micr_prisma2:/app
+      - ./proto:/proto
+    command: nest start
+    depends_on: 
+      - mysql
+    working_dir: /app
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./data/mysql:/var/lib/mysql  
+    # restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+    # ports: 
+    #   - 3307:3306
     
   node_client:
     build:
