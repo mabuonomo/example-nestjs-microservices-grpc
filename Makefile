@@ -24,7 +24,7 @@ npm_update:
 	make npm_install
 
 prisma_deploy:
-	docker-compose run node_prisma			npx prisma deploy
+	docker-compose run node_prisma			prisma deploy
 
 # start:
 # 	docker-compose up -d
