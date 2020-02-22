@@ -26,7 +26,7 @@ services:
       context: .docker
       dockerfile: Dockerfile.dev
     volumes:
-      - ./microservices/micr_prisma2:/app
+      - ./microservices/micr_prisma:/app
       - ./proto:/proto
     command: nest start
     depends_on: 
