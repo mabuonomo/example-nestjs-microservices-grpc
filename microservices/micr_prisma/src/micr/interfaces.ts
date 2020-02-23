@@ -1,8 +1,9 @@
-export interface Micr2ById {
+export interface UserById {
   id: number;
 }
 
-export interface Micr2 {
+export interface User {
   id: number;
   name: string;
+  surname: string;
 }

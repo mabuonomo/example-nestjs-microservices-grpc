@@ -10,3 +10,5 @@ RUN npm install -g @nestjs/cli
 
 # prisma
 RUN npm install -g prisma
+
+RUN npm install -g graphql-cli

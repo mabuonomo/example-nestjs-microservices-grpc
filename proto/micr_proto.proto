@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package micr_prisma;
+
+service MicrService {
+  rpc FindOne (UserById) returns (User) {}
+}
+
+message UserById {
+  int32 id = 1;
+}
+
+message User {
+  int32 id = 1;
+  string name = 2;
+  string surnname = 2;
+}

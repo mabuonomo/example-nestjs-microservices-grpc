@@ -21,4 +21,8 @@ npm_update:
 	make npm_install
 
 prisma_deploy:
-	docker-compose run node_prisma			prisma deploy
+	docker-compose run --rm node_prisma		prisma deploy
+
+prisma_generate_client:
+	docker-compose run --rm node_prisma 	graphql get-schema --project database
+	docker-compose run --rm node_prisma		graphql codegen --project database
