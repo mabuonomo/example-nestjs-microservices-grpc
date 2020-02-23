@@ -17,6 +17,9 @@ Navigate to
 ```
 http://localhost:3000/test/client1
 http://localhost:3000/test/client2
+
+http://localhost:3000/test/client_prisma_add
+http://localhost:3000/test/client_prisma_get
 ```
 
 ## Reference

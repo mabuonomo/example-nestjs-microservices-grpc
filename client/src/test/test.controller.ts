@@ -13,7 +13,7 @@ interface Micr2Service {
   findOne(data: { id: number }): Observable<any>;
 }
 
-interface MicrPrismaService {
+interface MicrService {
   findOne(data: { id: number }): Observable<any>;
   save(data: { id: number }): Observable<any>;
 }
@@ -31,13 +31,13 @@ export class TestController implements OnModuleInit {
 
   private micr1Service: Micr1Service;
   private micr2Service: Micr2Service;
-  private micrPrismaService: MicrPrismaService;
+  private micrPrismaService: MicrService;
 
   onModuleInit() {
     this.micr1Service = this.client1.getService<Micr1Service>('Micr1Service');
     this.micr2Service = this.client2.getService<Micr2Service>('Micr2Service');
-    this.micrPrismaService = this.clientPrisma.getService<MicrPrismaService>(
-      'MicrPrismaService',
+    this.micrPrismaService = this.clientPrisma.getService<MicrService>(
+      'MicrService',
     );
   }
 

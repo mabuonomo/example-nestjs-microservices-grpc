@@ -8,7 +8,7 @@ services:
     volumes:
       - ./microservices/micr1:/app
       - ./proto:/proto
-    command: nest start
+    command: nest start --watch
     working_dir: /app
 
   node_2:
@@ -18,7 +18,7 @@ services:
     volumes:
       - ./microservices/micr2:/app
       - ./proto:/proto
-    command: nest start
+    command: nest start --watch
     working_dir: /app
 
   node_prisma:
@@ -28,9 +28,7 @@ services:
     volumes:
       - ./microservices/micr_prisma:/app
       - ./proto:/proto
-    command: nest start
-    depends_on: 
-      - prisma
+    command: nest start --watch
     working_dir: /app
 
   prisma:
@@ -64,8 +62,8 @@ services:
       # MYSQL_DATABASE: mysql
       # MYSQL_USER: mysql
       # MYSQL_PASSWORD: mysql
-    # ports: 
-    #   - 3307:3306
+    ports: 
+      - 3307:3306
     
   node_client:
     build:
@@ -74,7 +72,7 @@ services:
     volumes:
       - ./client:/app
       - ./proto:/proto
-    command: nest start
+    command: nest start --watch
     working_dir: /app
     ports: 
       - 3000:3000
