@@ -14,5 +14,5 @@ message UserById {
 message User {
   int32 id = 1;
   string name = 2;
-  string surnname = 2;
+  string surname = 2;
 }
