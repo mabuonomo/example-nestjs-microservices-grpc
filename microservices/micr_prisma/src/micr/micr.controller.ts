@@ -8,7 +8,7 @@ export class MicrService {
   constructor(private readonly prisma: PrismaService) {}
 
   @GrpcMethod()
-  save(metadata: any): Promise<User> {
+  save(data: UserById, metadata: any): Promise<User> {
     return this.prisma.mutation.createUser({
       data: { name: 'John2', surname: 'Prova' },
     });

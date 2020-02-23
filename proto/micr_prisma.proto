@@ -4,7 +4,7 @@ package micr_prisma;
 
 service MicrService {
   rpc FindOne (UserById) returns (User) {}
-  rpc Save () returns (User) {}
+  rpc Save (UserById) returns (User) {}
 }
 
 message UserById {
@@ -14,5 +14,5 @@ message UserById {
 message User {
   int32 id = 1;
   string name = 2;
-  string surname = 2;
+  string surname = 3;
 }

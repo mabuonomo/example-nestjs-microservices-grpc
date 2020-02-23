@@ -81,3 +81,4 @@ services:
     depends_on: 
       - node_1
       - node_2
+      - node_prisma
