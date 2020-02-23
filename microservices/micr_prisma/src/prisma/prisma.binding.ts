@@ -1,53 +1,131 @@
-import { GraphQLResolveInfo, GraphQLSchema } from 'graphql'
-import { IResolvers } from 'graphql-tools/dist/Interfaces'
-import { Options } from 'graphql-binding'
-import { makePrismaBindingClass, BasePrismaOptions } from 'prisma-binding'
+import { GraphQLResolveInfo, GraphQLSchema } from 'graphql';
+import { IResolvers } from 'graphql-tools/dist/Interfaces';
+import { Options } from 'graphql-binding';
+import { makePrismaBindingClass, BasePrismaOptions } from 'prisma-binding';
 
 export interface Query {
-    users: <T = Array<User | null>>(args: { where?: UserWhereInput | null, orderBy?: UserOrderByInput | null, skip?: Int | null, after?: String | null, before?: String | null, first?: Int | null, last?: Int | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    user: <T = User | null>(args: { where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
-    usersConnection: <T = UserConnection>(args: { where?: UserWhereInput | null, orderBy?: UserOrderByInput | null, skip?: Int | null, after?: String | null, before?: String | null, first?: Int | null, last?: Int | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    node: <T = Node | null>(args: { id: ID_Output }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> 
-  }
+  users: <T = Array<User | null>>(
+    args: {
+      where?: UserWhereInput | null;
+      orderBy?: UserOrderByInput | null;
+      skip?: Int | null;
+      after?: String | null;
+      before?: String | null;
+      first?: Int | null;
+      last?: Int | null;
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>;
+  user: <T = User | null>(
+    args: { where: UserWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T | null>;
+  usersConnection: <T = UserConnection>(
+    args: {
+      where?: UserWhereInput | null;
+      orderBy?: UserOrderByInput | null;
+      skip?: Int | null;
+      after?: String | null;
+      before?: String | null;
+      first?: Int | null;
+      last?: Int | null;
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>;
+  node: <T = Node | null>(
+    args: { id: ID_Output },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T | null>;
+}
 
 export interface Mutation {
-    createUser: <T = User>(args: { data: UserCreateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateUser: <T = User | null>(args: { data: UserUpdateInput, where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
-    deleteUser: <T = User | null>(args: { where: UserWhereUniqueInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T | null> ,
-    upsertUser: <T = User>(args: { where: UserWhereUniqueInput, create: UserCreateInput, update: UserUpdateInput }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    updateManyUsers: <T = BatchPayload>(args: { data: UserUpdateInput, where?: UserWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> ,
-    deleteManyUsers: <T = BatchPayload>(args: { where?: UserWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<T> 
-  }
+  createUser: <T = User>(
+    args: { data: UserCreateInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>;
+  updateUser: <T = User | null>(
+    args: { data: UserUpdateInput; where: UserWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T | null>;
+  deleteUser: <T = User | null>(
+    args: { where: UserWhereUniqueInput },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T | null>;
+  upsertUser: <T = User>(
+    args: {
+      where: UserWhereUniqueInput;
+      create: UserCreateInput;
+      update: UserUpdateInput;
+    },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>;
+  updateManyUsers: <T = BatchPayload>(
+    args: { data: UserUpdateInput; where?: UserWhereInput | null },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>;
+  deleteManyUsers: <T = BatchPayload>(
+    args: { where?: UserWhereInput | null },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<T>;
+}
 
 export interface Subscription {
-    user: <T = UserSubscriptionPayload | null>(args: { where?: UserSubscriptionWhereInput | null }, info?: GraphQLResolveInfo | string, options?: Options) => Promise<AsyncIterator<T | null>> 
-  }
+  user: <T = UserSubscriptionPayload | null>(
+    args: { where?: UserSubscriptionWhereInput | null },
+    info?: GraphQLResolveInfo | string,
+    options?: Options,
+  ) => Promise<AsyncIterator<T | null>>;
+}
 
 export interface Exists {
-  User: (where?: UserWhereInput) => Promise<boolean>
+  User: (where?: UserWhereInput) => Promise<boolean>;
 }
 
 export interface Prisma {
-  query: Query
-  mutation: Mutation
-  subscription: Subscription
-  exists: Exists
-  request: <T = any>(query: string, variables?: {[key: string]: any}) => Promise<T>
-  delegate(operation: 'query' | 'mutation', fieldName: string, args: {
-    [key: string]: any;
-}, infoOrQuery?: GraphQLResolveInfo | string, options?: Options): Promise<any>;
-delegateSubscription(fieldName: string, args?: {
-    [key: string]: any;
-}, infoOrQuery?: GraphQLResolveInfo | string, options?: Options): Promise<AsyncIterator<any>>;
-getAbstractResolvers(filterSchema?: GraphQLSchema | string): IResolvers;
+  query: Query;
+  mutation: Mutation;
+  subscription: Subscription;
+  exists: Exists;
+  request: <T = any>(
+    query: string,
+    variables?: { [key: string]: any },
+  ) => Promise<T>;
+  delegate(
+    operation: 'query' | 'mutation',
+    fieldName: string,
+    args: {
+      [key: string]: any;
+    },
+    infoOrQuery?: GraphQLResolveInfo | string,
+    options?: Options,
+  ): Promise<any>;
+  delegateSubscription(
+    fieldName: string,
+    args?: {
+      [key: string]: any;
+    },
+    infoOrQuery?: GraphQLResolveInfo | string,
+    options?: Options,
+  ): Promise<AsyncIterator<any>>;
+  getAbstractResolvers(filterSchema?: GraphQLSchema | string): IResolvers;
 }
 
 export interface BindingConstructor<T> {
-  new(options: BasePrismaOptions): T
+  new (options: BasePrismaOptions): T;
 }
 /**
  * Type Defs
-*/
+ */
 
 const typeDefs = `type AggregateUser {
   count: Int!
@@ -341,100 +419,101 @@ input UserWhereInput {
 input UserWhereUniqueInput {
   id: ID
 }
-`
+`;
 
-export const Prisma = makePrismaBindingClass<BindingConstructor<Prisma>>({typeDefs})
+export const Prisma = makePrismaBindingClass<BindingConstructor<Prisma>>({
+  typeDefs,
+});
 
 /**
  * Types
-*/
+ */
 
-export type MutationType =   'CREATED' |
-  'UPDATED' |
-  'DELETED'
+export type MutationType = 'CREATED' | 'UPDATED' | 'DELETED';
 
-export type UserOrderByInput =   'id_ASC' |
-  'id_DESC' |
-  'name_ASC' |
-  'name_DESC' |
-  'surname_ASC' |
-  'surname_DESC' |
-  'updatedAt_ASC' |
-  'updatedAt_DESC' |
-  'createdAt_ASC' |
-  'createdAt_DESC'
+export type UserOrderByInput =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'surname_ASC'
+  | 'surname_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC';
 
 export interface UserCreateInput {
-  name: String
-  surname: String
+  name: String;
+  surname: String;
 }
 
 export interface UserSubscriptionWhereInput {
-  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput | null
-  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput | null
-  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput | null
-  mutation_in?: MutationType[] | MutationType | null
-  updatedFields_contains?: String | null
-  updatedFields_contains_every?: String[] | String | null
-  updatedFields_contains_some?: String[] | String | null
-  node?: UserWhereInput | null
+  AND?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput | null;
+  OR?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput | null;
+  NOT?: UserSubscriptionWhereInput[] | UserSubscriptionWhereInput | null;
+  mutation_in?: MutationType[] | MutationType | null;
+  updatedFields_contains?: String | null;
+  updatedFields_contains_every?: String[] | String | null;
+  updatedFields_contains_some?: String[] | String | null;
+  node?: UserWhereInput | null;
 }
 
 export interface UserUpdateInput {
-  name?: String | null
-  surname?: String | null
+  name?: String | null;
+  surname?: String | null;
 }
 
 export interface UserWhereInput {
-  AND?: UserWhereInput[] | UserWhereInput | null
-  OR?: UserWhereInput[] | UserWhereInput | null
-  NOT?: UserWhereInput[] | UserWhereInput | null
-  id?: ID_Input | null
-  id_not?: ID_Input | null
-  id_in?: ID_Output[] | ID_Output | null
-  id_not_in?: ID_Output[] | ID_Output | null
-  id_lt?: ID_Input | null
-  id_lte?: ID_Input | null
-  id_gt?: ID_Input | null
-  id_gte?: ID_Input | null
-  id_contains?: ID_Input | null
-  id_not_contains?: ID_Input | null
-  id_starts_with?: ID_Input | null
-  id_not_starts_with?: ID_Input | null
-  id_ends_with?: ID_Input | null
-  id_not_ends_with?: ID_Input | null
-  name?: String | null
-  name_not?: String | null
-  name_in?: String[] | String | null
-  name_not_in?: String[] | String | null
-  name_lt?: String | null
-  name_lte?: String | null
-  name_gt?: String | null
-  name_gte?: String | null
-  name_contains?: String | null
-  name_not_contains?: String | null
-  name_starts_with?: String | null
-  name_not_starts_with?: String | null
-  name_ends_with?: String | null
-  name_not_ends_with?: String | null
-  surname?: String | null
-  surname_not?: String | null
-  surname_in?: String[] | String | null
-  surname_not_in?: String[] | String | null
-  surname_lt?: String | null
-  surname_lte?: String | null
-  surname_gt?: String | null
-  surname_gte?: String | null
-  surname_contains?: String | null
-  surname_not_contains?: String | null
-  surname_starts_with?: String | null
-  surname_not_starts_with?: String | null
-  surname_ends_with?: String | null
-  surname_not_ends_with?: String | null
+  AND?: UserWhereInput[] | UserWhereInput | null;
+  OR?: UserWhereInput[] | UserWhereInput | null;
+  NOT?: UserWhereInput[] | UserWhereInput | null;
+  id?: ID_Input | null;
+  id_not?: ID_Input | null;
+  id_in?: ID_Output[] | ID_Output | null;
+  id_not_in?: ID_Output[] | ID_Output | null;
+  id_lt?: ID_Input | null;
+  id_lte?: ID_Input | null;
+  id_gt?: ID_Input | null;
+  id_gte?: ID_Input | null;
+  id_contains?: ID_Input | null;
+  id_not_contains?: ID_Input | null;
+  id_starts_with?: ID_Input | null;
+  id_not_starts_with?: ID_Input | null;
+  id_ends_with?: ID_Input | null;
+  id_not_ends_with?: ID_Input | null;
+  name?: String | null;
+  name_not?: String | null;
+  name_in?: String[] | String | null;
+  name_not_in?: String[] | String | null;
+  name_lt?: String | null;
+  name_lte?: String | null;
+  name_gt?: String | null;
+  name_gte?: String | null;
+  name_contains?: String | null;
+  name_not_contains?: String | null;
+  name_starts_with?: String | null;
+  name_not_starts_with?: String | null;
+  name_ends_with?: String | null;
+  name_not_ends_with?: String | null;
+  surname?: String | null;
+  surname_not?: String | null;
+  surname_in?: String[] | String | null;
+  surname_not_in?: String[] | String | null;
+  surname_lt?: String | null;
+  surname_lte?: String | null;
+  surname_gt?: String | null;
+  surname_gte?: String | null;
+  surname_contains?: String | null;
+  surname_not_contains?: String | null;
+  surname_starts_with?: String | null;
+  surname_not_starts_with?: String | null;
+  surname_ends_with?: String | null;
+  surname_not_ends_with?: String | null;
 }
 
 export interface UserWhereUniqueInput {
-  id?: ID_Input | null
+  id?: ID_Input | null;
 }
 
 /*
@@ -442,15 +521,15 @@ export interface UserWhereUniqueInput {
 
  */
 export interface Node {
-  id: ID_Output
+  id: ID_Output;
 }
 
 export interface AggregateUser {
-  count: Int
+  count: Int;
 }
 
 export interface BatchPayload {
-  count: Long
+  count: Long;
 }
 
 /*
@@ -458,16 +537,16 @@ export interface BatchPayload {
 
  */
 export interface PageInfo {
-  hasNextPage: Boolean
-  hasPreviousPage: Boolean
-  startCursor?: String | null
-  endCursor?: String | null
+  hasNextPage: Boolean;
+  hasPreviousPage: Boolean;
+  startCursor?: String | null;
+  endCursor?: String | null;
 }
 
 export interface User extends Node {
-  id: ID_Output
-  name: String
-  surname: String
+  id: ID_Output;
+  name: String;
+  surname: String;
 }
 
 /*
@@ -475,9 +554,9 @@ export interface User extends Node {
 
  */
 export interface UserConnection {
-  pageInfo: PageInfo
-  edges: Array<UserEdge | null>
-  aggregate: AggregateUser
+  pageInfo: PageInfo;
+  edges: Array<UserEdge | null>;
+  aggregate: AggregateUser;
 }
 
 /*
@@ -485,46 +564,46 @@ export interface UserConnection {
 
  */
 export interface UserEdge {
-  node: User
-  cursor: String
+  node: User;
+  cursor: String;
 }
 
 export interface UserPreviousValues {
-  id: ID_Output
-  name: String
-  surname: String
+  id: ID_Output;
+  name: String;
+  surname: String;
 }
 
 export interface UserSubscriptionPayload {
-  mutation: MutationType
-  node?: User | null
-  updatedFields?: Array<String> | null
-  previousValues?: UserPreviousValues | null
+  mutation: MutationType;
+  node?: User | null;
+  updatedFields?: Array<String> | null;
+  previousValues?: UserPreviousValues | null;
 }
 
 /*
 The `Boolean` scalar type represents `true` or `false`.
 */
-export type Boolean = boolean
+export type Boolean = boolean;
 
 /*
 The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `"4"`) or integer (such as `4`) input value will be accepted as an ID.
 */
-export type ID_Input = string | number
-export type ID_Output = string
+export type ID_Input = string | number;
+export type ID_Output = string;
 
 /*
 The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.
 */
-export type Int = number
+export type Int = number;
 
 /*
 The `Long` scalar type represents non-fractional signed whole numeric values.
 Long can represent values between -(2^63) and 2^63 - 1.
 */
-export type Long = string
+export type Long = string;
 
 /*
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 */
-export type String = string
+export type String = string;

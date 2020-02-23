@@ -9,8 +9,8 @@ async function bootstrap() {
     options: {
       // url: 'localhost:6379',
       url: '0.0.0.0:50051',
-      protoPath: '/proto/micr2.proto',
-      package: 'micr2',
+      protoPath: '/proto/micr_prisma.proto',
+      package: 'micr_prisma',
     },
   });
 
