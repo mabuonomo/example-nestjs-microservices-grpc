@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { Micr2Service } from './micr2.controller';
+import { MicrService } from './micr.controller';
 
 describe('Micr2 Controller', () => {
-  let controller: Micr2Service;
+  let controller: MicrService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [Micr2Service],
+      controllers: [MicrService],
     }).compile();
 
-    controller = module.get<Micr2Service>(Micr2Service);
+    controller = module.get<MicrService>(MicrService);
   });
 
   it('should be defined', () => {

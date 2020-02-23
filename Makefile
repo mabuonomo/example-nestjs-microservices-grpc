@@ -13,9 +13,6 @@ format:
 fix_permission:
 	sudo chown -R ${USER}:${GROUP} ./
 
-# npm_outdate:
-# 	docker-compose run node npm outdate
-
 npm_update:
 	docker-compose run --rm node_1 			npm update
 	docker-compose run --rm node_2 			npm update
@@ -25,17 +22,3 @@ npm_update:
 
 prisma_deploy:
 	docker-compose run node_prisma			prisma deploy
-
-# start:
-# 	docker-compose up -d
-# 	docker-compose exec node npm start run
-
-# debug:
-# 	docker-compose up -d
-# 	docker-compose exec node npm run start:debug
-
-# stop:
-# 	docker-compose stop
-
-# test:
-# 	docker-compose run node npm test
