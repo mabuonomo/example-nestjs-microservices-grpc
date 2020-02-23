@@ -4,12 +4,18 @@ import { Client, ClientGrpc } from '@nestjs/microservices';
 import { grpcClientOptions1 } from './client1';
 import { grpcClientOptions2 } from './client2';
 import { Observable } from 'rxjs';
+import { grpcClientPrismaOptions } from './client_prisma';
 
 interface Micr1Service {
   findOne(data: { id: number }): Observable<any>;
 }
 interface Micr2Service {
   findOne(data: { id: number }): Observable<any>;
+}
+
+interface MicrPrismaService {
+  findOne(data: { id: number }): Observable<any>;
+  save(): Observable<any>;
 }
 
 @Controller('test')
@@ -20,12 +26,19 @@ export class TestController implements OnModuleInit {
   @Client(grpcClientOptions2)
   private readonly client2: ClientGrpc;
 
+  @Client(grpcClientPrismaOptions)
+  private readonly clientPrisma: ClientGrpc;
+
   private micr1Service: Micr1Service;
   private micr2Service: Micr2Service;
+  private micrPrismaService: MicrPrismaService;
 
   onModuleInit() {
     this.micr1Service = this.client1.getService<Micr1Service>('Micr1Service');
     this.micr2Service = this.client2.getService<Micr2Service>('Micr2Service');
+    this.micrPrismaService = this.clientPrisma.getService<MicrPrismaService>(
+      'MicrPrismaService',
+    );
   }
 
   @Get('client1')
@@ -36,5 +49,15 @@ export class TestController implements OnModuleInit {
   @Get('client2')
   find2(): Observable<any> {
     return this.micr2Service.findOne({ id: 3 });
+  }
+
+  @Get('client_prisma_add')
+  prismaAdd(): Observable<any> {
+    return this.micrPrismaService.save();
+  }
+
+  @Get('client_prisma_get')
+  prismaGet(): Observable<any> {
+    return this.micrPrismaService.findOne({ id: 3 });
   }
 }
