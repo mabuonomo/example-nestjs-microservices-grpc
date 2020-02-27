@@ -17,4 +17,4 @@ RUN npm install -g graphql-cli
 
 RUN npm install -g ts-proto
 
-RUN apk -U --no-cache add protobuf
+RUN apk -U --no-cache add protobuf protobuf-dev

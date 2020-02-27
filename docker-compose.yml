@@ -6,8 +6,8 @@ services:
       context: .docker
       dockerfile: Dockerfile.dev
     volumes:
-      - ./proto:/proto
-    working_dir: /proto
+      - ./proto:/app
+    working_dir: /app
 
   node_1:
     build:
