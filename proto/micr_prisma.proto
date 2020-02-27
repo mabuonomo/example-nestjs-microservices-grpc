@@ -3,7 +3,7 @@ syntax = "proto3";
 package micr_prisma;
 
 service MicrService {
-  rpc FindOne (UserById) returns (User) {}
+  rpc FindOne (UserById) returns (UserList) {}
   rpc Save (UserById) returns (User) {}
 }
 
@@ -15,4 +15,8 @@ message User {
   string id = 1;
   string name = 2;
   string surname = 3;
+}
+
+message UserList {
+  repeated User users = 1;
 }

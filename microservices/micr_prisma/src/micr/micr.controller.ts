@@ -15,11 +15,13 @@ export class MicrService {
   }
 
   @GrpcMethod()
-  findOne(data: UserById, metadata: any): Promise<User> {
-    return this.prisma.query.users({
-      where: {
-        name: 'John2',
-      },
-    });
+  async findOne(data: UserById, metadata: any): Promise<any> {
+    return {
+      users: await this.prisma.query.users({
+        where: {
+          name: 'John2',
+        },
+      }),
+    };
   }
 }

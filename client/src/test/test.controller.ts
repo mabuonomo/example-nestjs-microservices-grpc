@@ -1,9 +1,8 @@
 import { Controller, Get, OnModuleInit } from '@nestjs/common';
-import { Transport } from '@nestjs/common/enums/transport.enum';
 import { Client, ClientGrpc } from '@nestjs/microservices';
 import { grpcClientOptions1 } from './client1';
 import { grpcClientOptions2 } from './client2';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { grpcClientPrismaOptions } from './client_prisma';
 
 interface Micr1Service {
@@ -14,7 +13,7 @@ interface Micr2Service {
 }
 
 interface MicrService {
-  findOne(data: { id: number }): Observable<any>;
+  findOne(data: { id: number }): any;
   save(data: { id: number }): Observable<any>;
 }
 
@@ -57,7 +56,7 @@ export class TestController implements OnModuleInit {
   }
 
   @Get('client_prisma_get')
-  prismaGet(): Observable<any> {
+  async prismaGet(): Promise<any> {
     return this.micrPrismaService.findOne({ id: 3 });
   }
 }
