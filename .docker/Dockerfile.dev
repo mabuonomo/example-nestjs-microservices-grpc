@@ -14,3 +14,7 @@ RUN npm install -g @nestjs/cli
 RUN npm install -g prisma
 
 RUN npm install -g graphql-cli
+
+RUN npm install -g ts-proto
+
+RUN apk -U --no-cache add protobuf

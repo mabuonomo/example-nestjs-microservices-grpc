@@ -26,3 +26,7 @@ prisma_deploy:
 prisma_generate_client:
 	docker-compose run --rm node_prisma 	graphql get-schema --project database
 	docker-compose run --rm node_prisma		graphql codegen --project database
+
+proto_compile:
+	docker-compose run generic npm install
+	docker-compose run generic sh compile.proto.sh

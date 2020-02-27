@@ -1,23 +1,23 @@
 syntax = "proto3";
-import "google/protobuf/empty.proto";
+// import "google/protobuf/empty.proto";
 
 package micr_prisma;
 
-service MicrService {
-  rpc FindOne (google.protobuf.Empty) returns (UserList) {}
-  rpc Save (google.protobuf.Empty) returns (User) {}
-}
+// service MicrService {
+//   rpc FindOne (google.protobuf.Empty) returns (UserList) {}
+//   rpc Save (google.protobuf.Empty) returns (User) {}
+// }
 
-message UserById {
-  string id = 1;
-}
+// message UserById {
+//   string id = 1;
+// }
 
-message User {
-  string id = 1;
-  string name = 2;
-  string surname = 3;
-}
+// message User {
+//   string id = 1;
+//   string name = 2;
+//   string surname = 3;
+// }
 
-message UserList {
-  repeated User users = 1;
-}
+// message UserList {
+//   repeated User users = 1;
+// }

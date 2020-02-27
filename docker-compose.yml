@@ -1,6 +1,14 @@
 version: '3.7'
 
 services:
+  generic:
+    build:
+      context: .docker
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./proto:/proto
+    working_dir: /proto
+
   node_1:
     build:
       context: .docker
