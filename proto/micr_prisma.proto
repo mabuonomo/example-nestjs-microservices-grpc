@@ -1,10 +1,11 @@
 syntax = "proto3";
+import "google/protobuf/empty.proto";
 
 package micr_prisma;
 
 service MicrService {
-  rpc FindOne (UserById) returns (UserList) {}
-  rpc Save (UserById) returns (User) {}
+  rpc FindOne (google.protobuf.Empty) returns (UserList) {}
+  rpc Save (google.protobuf.Empty) returns (User) {}
 }
 
 message UserById {

@@ -13,8 +13,8 @@ interface Micr2Service {
 }
 
 interface MicrService {
-  findOne(data: { id: number }): any;
-  save(data: { id: number }): Observable<any>;
+  findOne({}): any;
+  save({}): Observable<any>;
 }
 
 @Controller('test')
@@ -52,11 +52,11 @@ export class TestController implements OnModuleInit {
 
   @Get('client_prisma_add')
   prismaAdd(): Observable<any> {
-    return this.micrPrismaService.save({ id: 3 });
+    return this.micrPrismaService.save({});
   }
 
   @Get('client_prisma_get')
   async prismaGet(): Promise<any> {
-    return this.micrPrismaService.findOne({ id: 3 });
+    return this.micrPrismaService.findOne({});
   }
 }
