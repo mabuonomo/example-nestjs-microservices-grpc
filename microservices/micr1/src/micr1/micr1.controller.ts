@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
-import { Micr1ById, Micr1 } from './interfaces';
+import { Micr1ById, Micr1 } from '../../../../proto/build/micr1';
 
 @Controller()
 export class Micr1Service {
