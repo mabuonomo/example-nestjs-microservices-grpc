@@ -4,7 +4,7 @@ import { grpcClientOptions1 } from './client1';
 import { grpcClientOptions2 } from './client2';
 import { Observable, of } from 'rxjs';
 import { grpcClientPrismaOptions } from './client_prisma';
-
+import { MicrService, User, UserList } from '../../../proto/build/micr_prisma';
 interface Micr1Service {
   findOne(data: { id: number }): Observable<any>;
 }
@@ -12,10 +12,10 @@ interface Micr2Service {
   findOne(data: { id: number }): Observable<any>;
 }
 
-interface MicrService {
-  findOne({}): any;
-  save({}): Observable<any>;
-}
+// interface MicrService {
+//   findOne({}): any;
+//   save({}): Observable<any>;
+// }
 
 @Controller('test')
 export class TestController implements OnModuleInit {
@@ -51,12 +51,12 @@ export class TestController implements OnModuleInit {
   }
 
   @Get('client_prisma_add')
-  prismaAdd(): Observable<any> {
-    return this.micrPrismaService.save({});
+  prismaAdd(): Promise<User> {
+    return this.micrPrismaService.Save({});
   }
 
   @Get('client_prisma_get')
-  async prismaGet(): Promise<any> {
-    return this.micrPrismaService.findOne({});
+  async prismaGet(): Promise<UserList> {
+    return this.micrPrismaService.FindOne({});
   }
 }
