@@ -2,10 +2,6 @@
 import { Empty } from './google/protobuf/empty';
 
 
-export interface UserById {
-  id: string;
-}
-
 export interface User {
   id: string;
   name: string;

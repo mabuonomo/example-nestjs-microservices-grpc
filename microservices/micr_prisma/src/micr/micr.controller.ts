@@ -1,6 +1,6 @@
 import { Controller } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
-import { UserById, User } from './interfaces';
+import { User } from '../../../../proto/build/micr_prisma';
 import { PrismaService } from '../prisma/prisma.service';
 
 @Controller()
