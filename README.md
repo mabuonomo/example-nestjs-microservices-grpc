@@ -3,10 +3,11 @@
 This repo show as to configure a multi microservices stack in NestJS using gRPC in docker environment.
 
 
-## Stack
+## Docker Stack
 * 3 NestJS microservices 
 * 1 NestJS client
 * 1 Prisma server
+* 1 DB MySQL
 
 <img src="assets/microservices.png">
 
