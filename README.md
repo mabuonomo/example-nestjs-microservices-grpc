@@ -4,8 +4,11 @@ This repo show as to configure a multi microservices stack in NestJS using gRPC 
 
 
 ## Stack
-* 2 microservices 
-* 1 client
+* 3 NestJS microservices 
+* 1 NestJS client
+* 1 Prisma server
+
+<img src="assets/microservices.png">
 
 ## Run it!
 ```bash
