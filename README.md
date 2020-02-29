@@ -28,15 +28,12 @@ http://localhost:3000/test/client_prisma_add
 http://localhost:3000/test/client_prisma_get
 ```
 
-## Reference
+## Documentation
 
-* mariobuonomo.dev 
-** https://mariobuonomo.dev/blog/tutorial-nestjs-microservices-grpc
+- <a href="https://mariobuonomo.dev/blog/tutorial-nestjs-microservices-grpc" target="_blank">Blog</a>
 
 ## Thanks to
-- NestJS 
-** https://nestjs.com/
-- gRPC 
-** https://grpc.io/
-- Prisma 
-** https://www.prisma.io/
+
+- <a href="https://nestjs.com/" target="_blank">NestJS</a>
+- <a href="https://grpc.io/" target="_blank">gRPC</a>
+- <a href="https://www.prisma.io/" target="_blank">Prisma.io</a>
