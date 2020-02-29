@@ -1,13 +1,20 @@
 FROM node:11-alpine
 EXPOSE 3000 6379 50051 8080
 
+RUN npm install -g npm
+
 RUN npm install -g typescript
 RUN npm install -g ts-node
 RUN npm install -g ts-node-dev
 
-# npm update all
-RUN npm install -g outdate
-RUN npm install -g ncu
-
 # nest
 RUN npm install -g @nestjs/cli
+
+# prisma
+RUN npm install -g prisma
+
+RUN npm install -g graphql-cli
+
+RUN npm install -g ts-proto
+
+RUN apk -U --no-cache add protobuf protobuf-dev

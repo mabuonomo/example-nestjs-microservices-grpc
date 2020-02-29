@@ -1,0 +1,19 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+package micr_prisma;
+
+service MicrService {
+  rpc FindOne (google.protobuf.Empty) returns (UserList) {}
+  rpc Save (google.protobuf.Empty) returns (User) {}
+}
+
+message User {
+  string id = 1;
+  string name = 2;
+  string surname = 3;
+}
+
+message UserList {
+  repeated User users = 1;
+}
