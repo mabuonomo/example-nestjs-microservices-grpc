@@ -1,10 +1,11 @@
 docker = docker-compose run --rm -u 1000
 
-npm_install:
+init:
 	${docker} node_1 		npm install
 	${docker} node_2 		npm install
 	${docker} node_prisma	npm install
 	${docker} node_client 	npm install
+	make proto_build
 
 format:
 	${docker} node_1 		npm run format
@@ -20,7 +21,7 @@ npm_update:
 	${docker} node_2 		npm update
 	${docker} node_prisma 	npm update
 	${docker} node_client 	npm update
-	make npm_install
+	make init
 
 prisma_deploy:
 	${docker} node_prisma	prisma deploy
