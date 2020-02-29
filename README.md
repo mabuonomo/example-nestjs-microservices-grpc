@@ -59,7 +59,7 @@ message UserList {
 }
 ```
 
-generate the following ts code:
+generate the following typescript code:
 ```ts
 /* eslint-disable */
 import { Empty } from './google/protobuf/empty';
