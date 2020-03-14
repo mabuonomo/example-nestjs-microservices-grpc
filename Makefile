@@ -23,6 +23,13 @@ npm_update:
 	${docker} node_client 	npm update
 	make init
 
+npm_update_last:
+	${docker} node_1 		ncu -u
+	${docker} node_2 		ncu -u
+	${docker} node_prisma 	ncu -u
+	${docker} node_client 	ncu -u
+	make init
+
 prisma_deploy:
 	${docker} node_prisma	prisma deploy
 
