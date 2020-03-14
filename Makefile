@@ -1,33 +1,22 @@
 docker = docker-compose run --rm -u 1000
+projects = node_1 node_2 node_prisma node_client
 
 init:
-	${docker} node_1 		npm install
-	${docker} node_2 		npm install
-	${docker} node_prisma	npm install
-	${docker} node_client 	npm install
+	$(foreach project,$(projects),${docker} ${project} npm install;)
 	make proto_build
 
 format:
-	${docker} node_1 		npm run format
-	${docker} node_2 		npm run format
-	${docker} node_prisma	npm run format
-	${docker} node_client 	npm run format
+	$(foreach project,$(projects),${docker} ${project} npm run format;)
 
 fix_permission:
 	sudo chown -R ${USER}:${GROUP} ./
 
 npm_update:
-	${docker} node_1 		npm update
-	${docker} node_2 		npm update
-	${docker} node_prisma 	npm update
-	${docker} node_client 	npm update
+	$(foreach project,$(projects),${docker} ${project} npm update;)
 	make init
 
 npm_update_last:
-	${docker} node_1 		ncu -u
-	${docker} node_2 		ncu -u
-	${docker} node_prisma 	ncu -u
-	${docker} node_client 	ncu -u
+	$(foreach project,$(projects),${docker} ${project} ncu -u;)
 	make init
 
 prisma_deploy:
