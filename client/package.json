@@ -47,7 +47,7 @@
     "tsconfig-paths": "^3.9.0",
     "tslint": "^6.1.0",
     "typescript": "^3.8.3",
-    "minimist": "1.2.5"
+    "minimist": "1.2.6"
   },
   "jest": {
     "moduleFileExtensions": [
